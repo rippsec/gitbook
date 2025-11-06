@@ -1,0 +1,20 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "--- icon: circle-user ---",
+  "main": "index.js",
+  "scripts": {
+    "generate-summary": "node generate-summary.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xffsec/gitbook.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xffsec/gitbook/issues"
+  },
+  "homepage": "https://github.com/xffsec/gitbook#readme"
+}
