@@ -22,4 +22,4 @@ Designed for security practitioners, SOC analysts, pentesters, and students purs
 
 
 
-<figure><img src=".gitbook/assets/x.png" alt="" width="230"><figcaption></figcaption></figure>
+<figure><img src="/img/x.png" alt="" width="230"><figcaption></figcaption></figure>
