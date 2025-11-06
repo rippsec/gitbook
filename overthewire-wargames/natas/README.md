@@ -4,4 +4,4 @@ icon: python
 
 # Natas
 
-Python + web-pentesting basics, Play here: https://overthewire.org/wargames/natas/
+Python + web-pentesting basics, Play here: [https://overthewire.org/wargames/natas/](https://overthewire.org/wargames/natas/)
