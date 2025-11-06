@@ -15,3 +15,4 @@
 
 
 * [Dockerlabs](ctf/dockerlabs/README.md)
+  * [waffy](ctf/dockerlabs/waffy.md)
