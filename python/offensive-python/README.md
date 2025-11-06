@@ -1,0 +1,6 @@
+---
+icon: sword
+---
+
+# Offensive Python
+
