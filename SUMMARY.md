@@ -1,6 +1,6 @@
 # Table of contents
 
-* [xff](README.md)
+* [Rippsec](README.md)
 * [CTF](ctf/README.md)
   * [Dockerlabs](ctf/dockerlabs/README.md)
     * [waffy](ctf/dockerlabs/waffy.md)

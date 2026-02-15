@@ -1,9 +1,9 @@
 ---
-description: xffsec "xff-security"
+description: RIppsec
 icon: circle-user
 ---
 
-# xff
+# Rippsec
 
 ## welcome
 
